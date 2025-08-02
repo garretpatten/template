@@ -1,0 +1,30 @@
+name: Opengrep Scan
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  opengrep-scan:
+    name: "Opengrep Scan"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout Code"
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
+
+      - name: "Install Opengrep"
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/opengrep/opengrep/main/install.sh | bash
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: "Run Opengrep Scan"
+        run: |
+          git fetch origin main
+          opengrep diff \
+            --base origin/main \
+            --rules https://github.com/opengrep/opengrep-rules \
+            --format github
