@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   quality-checks:
-    uses: garretpatten/quality-checks/.github/workflows/quality-checks.yml@master
+    uses: garretpatten/quality-checks/.github/workflows/quality-checks.yaml@master
     with:
       actionlint_run: true
       eslint_run: true
