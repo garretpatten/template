@@ -1,6 +1,7 @@
 # Template Repository
 
-A comprehensive template repository for starting new projects with pre-configured development tools, code quality checks, and security scanning.
+A comprehensive template repository for starting new projects with
+pre-configured development tools, code quality checks, and security scanning.
 
 ## Contents
 
@@ -9,7 +10,8 @@ This template includes the following components:
 ### Code Formatting
 
 - **Prettier** - Configured with consistent formatting rules (`.prettierrc`)
-- **Prettier ignore patterns** (`.prettierignore`) - Excludes build artifacts and dependencies
+- **Prettier ignore patterns** (`.prettierignore`) - Excludes build artifacts
+  and dependencies
 
 ### VS Code Configuration
 
@@ -18,7 +20,9 @@ This template includes the following components:
 
 ### GitHub Workflows
 
-- **Quality Checks** (`.github/workflows/quality-checks.yaml`) - Calls reusable workflow from `garretpatten/quality-checks` repository to run various linters and formatters:
+- **Quality Checks** (`.github/workflows/quality-checks.yaml`) - Calls
+  reusable workflow from `garretpatten/quality-checks` repository to run
+  various linters and formatters:
   - Actionlint
   - ESLint
   - Hadolint
@@ -30,20 +34,25 @@ This template includes the following components:
   - Taplo
   - Yamllint
 
-- **Security Checks** (`.github/workflows/security-checks.yaml`) - Calls reusable workflow from `garretpatten/security-checks` repository to run security scans:
+- **Security Checks** (`.github/workflows/security-checks.yaml`) - Calls
+  reusable workflow from `garretpatten/security-checks` repository to run
+  security scans:
   - Semgrep - Security and code quality scanning
   - Trufflehog - Secret scanning to detect exposed credentials
 
 ### GitHub Configuration
 
 - **CODEOWNERS** - Sets repository owner for code review requirements
-- **Dependabot** (`.github/dependabot.yaml`) - Automated dependency updates for GitHub Actions
+- **Dependabot** (`.github/dependabot.yaml`) - Automated dependency updates
+  for GitHub Actions
 - **Issue Template** (`.github/issue_template.md`) - Standardized issue creation
-- **Pull Request Template** (`.github/pull_request_template.md`) - Standardized PR creation
+- **Pull Request Template** (`.github/pull_request_template.md`) -
+  Standardized PR creation
 
 ### Other Files
 
-- **`.gitignore`** - Comprehensive ignore patterns for Node.js, build artifacts, and common development files
+- **`.gitignore`** - Comprehensive ignore patterns for Node.js, build
+  artifacts, and common development files
 - **`.truffleignore`** - Patterns to exclude from Trufflehog secret scanning
 - **`LICENSE`** - License file for the repository
 - **`package.json`** - Node.js package configuration with Prettier as a dev dependency
