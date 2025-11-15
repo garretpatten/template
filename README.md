@@ -30,8 +30,9 @@ This template includes the following components:
   - Taplo
   - Yamllint
 
-- **Semgrep Scan** (`.github/workflows/semgrep-scan.yaml`) - Security and code quality scanning using Semgrep
-- **Trufflehog Scan** (`.github/workflows/trufflehog-scan.yaml`) - Secret scanning to detect exposed credentials
+- **Security Checks** (`.github/workflows/security-checks.yaml`) - Calls reusable workflow from `garretpatten/security-checks` repository to run security scans:
+  - Semgrep - Security and code quality scanning
+  - Trufflehog - Secret scanning to detect exposed credentials
 
 ### GitHub Configuration
 
