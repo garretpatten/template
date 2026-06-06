@@ -1,0 +1,43 @@
+name: Bug report
+description: Incorrect behavior, broken workflow, or unexpected output
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Describe **expected vs actual**, reproduction steps, and environment.
+        Read **CONTRIBUTING.md** before submitting.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Expected vs actual
+      description: What should happen versus what occurred.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: Commands, workflow runs, or file paths involved.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, runtime versions, CI job URL, or other context.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (optional but helpful)
+      description: Relevant log excerpts or CI links (redact secrets).
+      render: plaintext
+    validations:
+      required: false

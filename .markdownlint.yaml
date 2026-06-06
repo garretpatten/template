@@ -1,0 +1,7 @@
+---
+# Aligned with Prettier (printWidth 100, proseWrap: preserve). Prettier owns
+# wrapping; markdownlint owns structure and semantics — not line length or HTML.
+default: true
+MD013: false
+MD033: false
+MD041: false

@@ -1,70 +1,71 @@
 # Template Repository
 
-A comprehensive template repository for starting new projects with
-pre-configured development tools, code quality checks, and security scanning.
+A GitHub template for new projects with formatting standards, PR-scoped linting,
+security guardrails, CODEOWNERS enforcement, and community docs preconfigured.
 
-## Contents
+## Quick start
 
-This template includes the following components:
+1. Click **Use this template** on GitHub (or clone and reinitialize).
+2. Update **`.github/CODEOWNERS`** with your maintainers.
+3. Replace placeholder URLs in **`.github/ISSUE_TEMPLATE/config.yml`** and **CONTRIBUTING.md**.
+4. Trim unused `*_run` inputs in **`.github/workflows/quality-checks.yaml`** for your stack.
+5. Run **`npm install`** and **`npm run lint`** before opening pull requests.
 
-### Code Formatting
+## Formatting and lint config
 
-- **Prettier** - Configured with consistent formatting rules (`.prettierrc`)
-- **Prettier ignore patterns** (`.prettierignore`) - Excludes build artifacts
-  and dependencies
+| File                                         | Purpose                                          |
+| -------------------------------------------- | ------------------------------------------------ |
+| [`.prettierrc`](./.prettierrc)               | Prettier defaults (100-char prose, 80-char YAML) |
+| [`.prettierignore`](./.prettierignore)       | Build artifacts and lockfiles                    |
+| [`.markdownlint.yaml`](./.markdownlint.yaml) | Markdown rules (`MD013` off; Prettier wraps)     |
+| [`.yamllint`](./.yamllint)                   | YAML rules (80-char lines)                       |
+| [`.truffleignore`](./.truffleignore)         | TruffleHog exclusions                            |
+| [`.trivyignore`](./.trivyignore)             | Trivy vulnerability/license exclusions           |
 
-### VS Code Configuration
+Local lint entrypoint:
 
-- **Settings** (`.vscode/settings.json`) - Format on save enabled with Prettier
-- **Recommended extensions** (`.vscode/extensions.json`) - Suggests Prettier extension
+```bash
+npm install
+npm run lint
+```
 
-### GitHub Workflows
+## GitHub workflows
 
-- **Quality Checks** (`.github/workflows/quality-checks.yaml`) - Calls
-  reusable workflow from `garretpatten/quality-checks` repository to run
-  various linters and formatters:
-  - Actionlint
-  - ESLint
-  - Hadolint
-  - jq
-  - Markdownlint
-  - Prettier
-  - Ruff
-  - Shellcheck
-  - Taplo
-  - Yamllint
+| Workflow                                                            | Reusable source                                                                         | Purpose                                                                           |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [quality-checks](./.github/workflows/quality-checks.yaml)           | [garretpatten/quality-checks](https://github.com/garretpatten/quality-checks)           | PR-scoped linters (Prettier, Markdownlint, Yamllint, Shellcheck, ESLint, Ruff, …) |
+| [security-guardrails](./.github/workflows/security-guardrails.yaml) | [garretpatten/security-guardrails](https://github.com/garretpatten/security-guardrails) | OpenGrep SAST, verified TruffleHog, dependency review, Trivy                      |
+| [codeowners-enforcer](./.github/workflows/codeowners-enforcer.yaml) | [garretpatten/codeowners-enforcer](https://github.com/garretpatten/codeowners-enforcer) | Fail PRs when changed files lack CODEOWNERS coverage                              |
 
-- **Security Checks** (`.github/workflows/security-checks.yaml`) - Calls
-  reusable workflow from `garretpatten/security-checks` repository to run
-  security scans:
-  - Semgrep - Security and code quality scanning
-  - Trufflehog - Secret scanning to detect exposed credentials
+Set each `*_run` input to `false` for tools your project does not use. Jobs no-op when
+nothing relevant changed.
 
-### GitHub Configuration
+## GitHub configuration
 
-- **CODEOWNERS** - Sets repository owner for code review requirements
-- **Dependabot** (`.github/dependabot.yaml`) - Automated dependency updates
-  for GitHub Actions
-- **Issue Template** (`.github/issue_template.md`) - Standardized issue creation
-- **Pull Request Template** (`.github/pull_request_template.md`) -
-  Standardized PR creation
+- **[CODEOWNERS](./.github/CODEOWNERS)** — default owner for all paths
+- **[Dependabot](./.github/dependabot.yaml)** — daily GitHub Actions update PRs (limit 0 open)
+- **[Issue templates](./.github/ISSUE_TEMPLATE/)** — bug report and feature request forms
+- **[Pull request template](./.github/pull_request_template.md)** — checklist with CoC and security links
 
-### Other Files
+## Project docs
 
-- **`.gitignore`** - Comprehensive ignore patterns for Node.js, build
-  artifacts, and common development files
-- **`.truffleignore`** - Patterns to exclude from Trufflehog secret scanning
-- **`LICENSE`** - License file for the repository
-- **`package.json`** - Node.js package configuration with Prettier as a dev dependency
+- **[CONTRIBUTING.md](./CONTRIBUTING.md)** — how to report issues and run local checks
+- **[SECURITY.md](./SECURITY.md)** — vulnerability disclosure and supported scope
+- **[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)** — community standards
+- **[AGENTS.md](./AGENTS.md)** — conventions for AI coding agents
+- **[LICENSE](./LICENSE)** — MIT
 
-## Usage
+## VS Code
 
-1. Use this repository as a template when creating a new project
-2. Customize the configuration files as needed for your specific project
-3. Update the CODEOWNERS file with appropriate maintainers
-4. Adjust workflow configurations based on your project's requirements
+- **[`.vscode/settings.json`](./.vscode/settings.json)** — format on save with Prettier
+- **[`.vscode/extensions.json`](./.vscode/extensions.json)** — recommends Prettier extension
 
 ## Requirements
 
-- Node.js (for Prettier)
-- GitHub Actions enabled (for workflows)
+- Node.js (for Prettier and Markdownlint)
+- GitHub Actions enabled
+- Optional locally: `yamllint`, `actionlint`, and stack-specific linters enabled in quality-checks
+
+## License
+
+MIT — see [LICENSE](./LICENSE).

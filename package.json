@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "lint": "npm run lint:prettier && npm run lint:markdown && npm run lint:yaml",
+    "lint:prettier": "prettier --check .",
+    "lint:markdown": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
+    "lint:yaml": "yamllint .github .yamllint .markdownlint.yaml"
+  },
   "devDependencies": {
+    "markdownlint-cli2": "^0.22.1",
     "prettier": "^3.6.2"
   }
 }

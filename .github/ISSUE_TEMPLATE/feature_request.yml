@@ -1,0 +1,46 @@
+name: Feature request
+description: Suggest improvements to tooling, docs, or CI
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        State **why**, constraints, and intended outcome.
+        Read **CONTRIBUTING.md** before submitting.
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What changes and intended outcome?
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Problem / rationale
+      description: What gap exists today?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Primary surface
+      options:
+        - application / source code
+        - docs / README
+        - CI / GitHub workflows
+        - dependencies / tooling
+      default: 0
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints (optional)
+      description: Offline, regulated env, breaking changes, CI noise, …
+      render: plaintext
+    validations:
+      required: false
