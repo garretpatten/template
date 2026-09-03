@@ -9,7 +9,8 @@ security guardrails, CODEOWNERS enforcement, and community docs preconfigured.
 2. Update **`.github/CODEOWNERS`** with your maintainers.
 3. Replace placeholder URLs in **`.github/ISSUE_TEMPLATE/config.yml`** and **CONTRIBUTING.md**.
 4. Trim unused `*_run` inputs in **`.github/workflows/quality-checks.yaml`** for your stack.
-5. Run **`npm install`** and **`npm run lint`** before opening pull requests.
+5. Trim unused package ecosystems in **`.github/dependabot.yaml`** if your project does not use npm.
+6. Run **`npm install`** and **`npm run lint`** before opening pull requests.
 
 ## Formatting and lint config
 
