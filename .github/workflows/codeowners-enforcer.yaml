@@ -50,7 +50,7 @@ jobs:
 
       - name: Checkout Code
         # actions/checkout v4.2.2
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           token: ${{ github.token }}
@@ -85,7 +85,7 @@ jobs:
         if: steps.filelists.outputs.skip_verify != 'true'
         continue-on-error: true
         id: codeowners-enforcer
-        uses: garretpatten/codeowners-enforcer@master
+        uses: garretpatten/codeowners-enforcer@6c87ce79f75ef079b0c6d0ffc6c24d2d93e220bb # master
         with:
           changedFiles: ${{ steps.filelists.outputs.git_diff }}
           deletedFiles: ${{ steps.filelists.outputs.git_diff_deleted }}
@@ -93,7 +93,7 @@ jobs:
       - name: Comment on PR
         if: steps.codeowners-enforcer.outcome == 'failure'
         id: comment
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           github-token: ${{ github.token }}
           script: |
@@ -145,7 +145,7 @@ jobs:
 
       - name: Comment skipped (file list too large for runner)
         if: steps.filelists.outputs.skip_verify == 'true'
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           github-token: ${{ github.token }}
           script: |
