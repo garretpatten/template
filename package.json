@@ -8,5 +8,8 @@
   "devDependencies": {
     "markdownlint-cli2": "^0.23.3",
     "prettier": "^3.6.2"
+  },
+  "overrides": {
+    "katex": "^0.18.2"
   }
 }
