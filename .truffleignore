@@ -3,5 +3,6 @@ dist/
 build/
 coverage/
 package-lock.json
-*.min.js
-*.snap
+# TruffleHog treats these lines as regular expressions.
+[a-zA-Z0-9_-]+\.min\.js
+[a-zA-Z0-9_-]+\.snap
