@@ -1,5 +1,8 @@
 # Template Repository
 
+[![License: MIT](https://img.shields.io/github/license/garretpatten/template?style=flat-square)](./LICENSE)
+[![Use this template](https://img.shields.io/badge/use_this_template-2ea44f?style=flat-square&logo=github)](https://github.com/garretpatten/template/generate)
+
 A GitHub template for new projects with formatting standards, PR-scoped linting,
 security guardrails, CODEOWNERS enforcement, and community docs preconfigured.
 
